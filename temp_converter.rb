@@ -1,5 +1,8 @@
-print "Please enter a temperature and scale (C or F):"
+# print is a call to the kernel method 'print' to write standard output
+# This leaves the cursor "hanging" at the end of the line
+print "Please enter a temperature and scale (C or F):" 
 
+# .flush takes the data stored in a buffer and writes it to standard output to empty the buffer
 STDOUT.flush
 
 str = gets
