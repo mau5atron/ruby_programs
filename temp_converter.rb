@@ -44,7 +44,6 @@ else
 	abort "Must specify C or F."
 end
 
-
 if f.nil? # checks if f is not nil, if not nil then print string
 	puts "#{c} degress C"
 else # else if f is not entered, then select c and print string
