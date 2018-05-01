@@ -107,5 +107,45 @@ end
 
 
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# MIssing Methods
+
+# When a method is invoked (my_object.my_method), Ruby first searches for the named method according to this search order:
+
+=begin
+	1. Singleton methods in the receiver my_object
+
+	2. Methods defined in my_object's class
+	
+	3. Methods defined among my_object's ancestors	
+=end
+
+# IF the method 'my_method' is not found, Ruby searches for a method called method_missing. If this method is defined, it is 
+# passed the name of the missing method (as a symbol) and all the parameters that were passed to the nonexistent my_method
+# This facility can be used for the dynamic handling of unknown messages sent at runtime.
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Garbage Collection 
+
+# Managing memory on a low level is hard an error prone, especially in a dynamic 
+# environment such as Ruby.; having a garbage collection (GC) facility is a significant 
+# advantage. In languages such as C++, memory allocation and deallocation are handled by the prgrammer.;
+# In other languages such as Java, memory is reclaimed (when objects go out of scope) by a garbage collector.
+
+# Memory leaks are caused when an object is not freed even though there are no references to it. Programs with this bug typically
+# use up more memory until they crash.;
+# This kind of error is also difficult to find. Ruby has a GC facility that periodically tracks down unused objects and reclaims 
+# the storage that was allocated to them. For those who care about such things, Ruby's GC is done using a generational mark and 
+# sweep algorithm rather than counting (which can have difficulties with recursive structures.)
+
+# Certain performance penalties may be associated with garbage collection. Some environment variables and methods on the GC 
+# module allow a programmer to tailor garbage collection to the needs of the individual program. We can also 
+# define an object finalizer -- reference 'section 11.3.10'
+
+
+
+
 
 
