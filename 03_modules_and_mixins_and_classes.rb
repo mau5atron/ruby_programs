@@ -138,7 +138,41 @@ end
 
 # Private: 
 # The private level means that the method is accessible only within the class or its subclasses, and it is callable only in "function form"
+# with self, implicit or explicit, as a receiver. 
 
+# Protected: 
+# The protected level means that a method can be called by other objects of the class or its subclasses, unlike a private merhod.
+# (which can only be called on self)
+
+# THOUGH the default visibility for the method defined in a class is public.
+# The exception is the instance-initializing method initialize.
+
+# Ruby classes are themselves onjects, being instances of the parent class Class.
+# Ruby classes are always concrete; there are no abstract classes. However, it is possible to implement 
+# abstract clsses in Ruby if you want to do so.
+
+# The class Object is at the root of the hierarchy. It provides all the methods defined in the built-in Kernel module.
+# Technically, BasicObject is the parent of Object. It acts as "blank slate" object that does not have all the baggage of a normal object.
+
+	# To create a class that inherits from another class, define it in this way:
+
+	class MyClass < OtherClass
+		# 
+	end
+
+# In addition to using built-in methods, it is only natural to define your own and alos to redefine an override existing ones.
+# When you define a method with the same name as an existing one, the previous method is overrriden. If a method needs 
+# to call the "parent" method it overrides (frequent occurence), the keyword super can be used for this purpose.
+
+# It is possible to create aliases or synonynms for methods. The syntax (used inside a class definition) is as follows. 
+
+alias_method :newname, :oldname
+
+# The number of parameters will be the same as for the old name, and it will be called in the same way. An alias creates a copy
+# of the method, so later changes to the original method will not be reflected in aliases created beforehand.
+
+# There is also a Ruby keyword called alias, which is similar, unlike the method, it can alias global variables as well as methods,
+# and its arguements are not separated by a comma.
 
 
 
