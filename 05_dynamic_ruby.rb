@@ -43,3 +43,69 @@ eval(meth_name) # call the Method
 
 # Languages such as Smalltalk, LISP, and Java implement(to varying degrees) the notion of a reflective programming language -- one in 
  # which the active environment can query the objects that define it and extend or modify them at runtime.
+
+ # Ruby allows reflection quite extensively but does not go as far as Smalltalk, which even 
+ # represents control structures as objects. Ruby control structures and blocks are not objects. 
+
+# (A Proc object can be used to "objectify" a block, but control structures are never objects)
+
+# The keyword 'defined?' (with the question mark) may be used to determine whether an identifier name is in use.
+
+if defined? some_var
+	puts "some_var = #{some_var}"
+else
+	puts "The variable some_var is not known."
+end
+
+# Similarly, the method respond_to? determines whether an object can respond to the specified method call 
+# (that is, whether that method is defined for that object)
+# The respond_to? method is defined in class Object
+
+# Ruby supports runtime-type information in a radical way. The Type (or class) of an object can be determined at 
+# runtime using the method class (defined in Object). 
+
+# Similarly, 'is_a?' tells whether an object is of a certain class (including the superclasses);
+
+# 'kind_of?' is an alias. Example:
+
+puts "abc".class # Prints string
+puts 345.class # Prints Fixnum
+rover = Dog.new 
+
+print rover.class # Prints Dog
+
+if rover.is_a? Dog
+	puts "Of course he is."
+end
+
+if rover.kind_of? Dog
+	puts "Yes, still a dog"
+end
+
+if rover.is_a? Animal
+	puts "Yes, he is an animal, too."
+end
+
+# The class module has a method called 'constants' that is used to list the constants defined within a module.
+
+# The class Module has a method called 'ancestors' that returns a list of modules included in the given module. 
+# This list is self-inclusive; 'Mod.ancestors' will always have at least Mod in the list.
+# This list comprises not only parent clsses (through inheritance) but "parent" modules (through module inclusion)
+
+# The class 'BasicObject' has a method called superclass that returns the superclass of the object or returns nil. 
+# Because BasicObject itself is the only object without a superclass, it is the only case in which nil will be returned.
+
+
+# The ObjectSpace module is used to access any all "living" obejcts. The method. '_idtoref' can be used to convert an 
+# object ID to any object reference. 
+# It can be considered the inverse of the object_id method. 
+
+# ObjectSpace also has an iterator called each_object that iterates over the objects currently in existence, including 
+# many that you will not otherwise explicitly know about. 
+# (Remember that certain small immutable objects, such as objects of class Fixnum, NilClass, TrueClass, and FalseClass, 
+# are not kept on the stack for optimization reasons.)
+
+
+
+
+
